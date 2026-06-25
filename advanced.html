@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Sharli Pleats & Grace – Pre-Pleating Specialists</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --gold:#9B6C2F;
+  --gold-light:#C8923E;
+  --gold-pale:#F5EDD8;
+  --gold-wash:#FBF6EC;
+  --brown-deep:#2A1506;
+  --brown-mid:#5C3010;
+  --brown-soft:#8C5A30;
+  --cream:#FDFAF5;
+  --off-white:#F7F2EA;
+  --text:#1E0D02;
+  --text-muted:#7A5535;
+  --border:rgba(155,108,47,0.18);
+  --wa:#25D366;
+}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--text);overflow-x:hidden}
+
+/* ── SCROLLBAR ── */
+::-webkit-scrollbar{width:6px}
+::-webkit-scrollbar-track{background:var(--gold-wash)}
+::-webkit-scrollbar-thumb{background:var(--gold);border-radius:3px}
+
+/* ── NAV ── */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 3rem;height:72px;
+  background:rgba(42,21,6,0.92);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid rgba(155,108,47,0.25);
+  transition:background 0.3s
+}
+.nav-logo{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.5rem;font-weight:600;color:#FBF6EC;letter-spacing:0.02em
+}
+.nav-logo span{
+  display:block;font-family:'DM Sans',sans-serif;font-size:0.6rem;
+  letter-spacing:0.35em;color:var(--gold-light);font-weight:400;
+  text-transform:uppercase;margin-top:1px
+}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{
+  text-decoration:none;font-size:0.78rem;letter-spacing:0.12em;
+  color:rgba(251,246,236,0.75);font-weight:400;text-transform:uppercase;
+  transition:color 0.2s
+}
+.nav-links a:hover{color:#FBF6EC}
+.nav-cta{
+  background:var(--gold);color:#FBF6EC;
+  padding:8px 20px;border-radius:2px;
+  font-size:0.72rem;letter-spacing:0.12em;text-decoration:none;
+  text-transform:uppercase;font-weight:500;
+  transition:background 0.2s
+}
+.nav-cta:hover{background:var(--gold-light)}
+
+/* ── HERO ── */
+.hero{
+  min-height:100vh;display:grid;grid-template-columns:1fr 1fr;
+  align-items:center;padding:6rem 5rem 4rem;gap:4rem;
+  background:var(--brown-deep);position:relative;overflow:hidden
+}
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse 60% 70% at 80% 50%,rgba(155,108,47,0.12) 0%,transparent 70%);
+  pointer-events:none
+}
+.hero-eyebrow{
+  display:inline-flex;align-items:center;gap:10px;
+  font-size:0.68rem;letter-spacing:0.35em;color:var(--gold-light);
+  text-transform:uppercase;margin-bottom:1.8rem;
+  animation:fadeUp 0.8s 0.1s both
+}
+.hero-eyebrow::before,.hero-eyebrow::after{content:'';width:32px;height:1px;background:var(--gold)}
+.hero h1{
+  font-family:'Cormorant Garamond',serif;
+  font-size:4.5rem;line-height:1.1;
+  color:#FBF6EC;margin-bottom:1.2rem;
+  animation:fadeUp 0.8s 0.2s both
+}
+.hero h1 em{color:var(--gold-light);font-style:italic}
+.hero-tamil{
+  font-size:1.1rem;color:rgba(251,246,236,0.6);
+  margin-bottom:1rem;line-height:1.7;
+  animation:fadeUp 0.8s 0.3s both;
+  font-weight:300
+}
+.hero-desc{
+  font-size:0.9rem;color:rgba(251,246,236,0.5);line-height:1.9;
+  margin-bottom:2.5rem;max-width:400px;
+  animation:fadeUp 0.8s 0.4s both
+}
+.hero-btns{
+  display:flex;gap:14px;flex-wrap:wrap;
+  animation:fadeUp 0.8s 0.5s both
+}
+.btn-primary{
+  background:var(--gold);color:#FBF6EC;
+  padding:13px 28px;border-radius:2px;text-decoration:none;
+  font-size:0.78rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;
+  transition:background 0.2s,transform 0.15s
+}
+.btn-primary:hover{background:var(--gold-light);transform:translateY(-2px)}
+.btn-wa{
+  background:transparent;color:#FBF6EC;
+  padding:13px 28px;border-radius:2px;text-decoration:none;
+  font-size:0.78rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;
+  border:1px solid rgba(251,246,236,0.3);
+  transition:border-color 0.2s,transform 0.15s
+}
+.btn-wa:hover{border-color:#FBF6EC;transform:translateY(-2px)}
+
+/* hero right */
+.hero-visual{
+  display:flex;justify-content:center;
+  animation:fadeUp 0.8s 0.3s both
+}
+.saree-card{
+  background:rgba(251,246,236,0.06);
+  border:1px solid rgba(155,108,47,0.3);
+  border-radius:4px;padding:2rem;text-align:center;
+  backdrop-filter:blur(8px);position:relative
+}
+.saree-badge{
+  position:absolute;top:-14px;left:50%;transform:translateX(-50%);
+  background:var(--gold);color:#FBF6EC;
+  padding:5px 18px;border-radius:2px;
+  font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;
+  white-space:nowrap
+}
+.slider{
+  width:300px;height:420px;border-radius:2px;
+  overflow:hidden;position:relative;margin:0 auto 1.5rem
+}
+.slider img{
+  position:absolute;inset:0;width:100%;height:100%;
+  object-fit:cover;object-position:top;
+  opacity:0;transition:opacity 1.2s ease
+}
+.slider img.active{opacity:1}
+.stats{display:flex;gap:2rem;justify-content:center;padding-top:1rem}
+.stat-num{
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.8rem;color:var(--gold-light);font-weight:600;line-height:1
+}
+.stat-label{font-size:0.65rem;letter-spacing:0.15em;color:rgba(251,246,236,0.4);text-transform:uppercase;margin-top:4px}
+
+/* ── DIVIDER ── */
+.section-divider{
+  display:flex;align-items:center;justify-content:center;gap:16px;
+  padding:2.5rem 0;opacity:0.4
+}
+.section-divider::before,.section-divider::after{
+  content:'';flex:1;max-width:120px;height:1px;background:var(--gold)
+}
+.divider-ornament{font-size:1rem;color:var(--gold)}
+
+/* ── SECTIONS ── */
+.section{padding:5rem 5rem;max-width:1200px;margin:0 auto}
+.section-eyebrow{
+  font-size:0.65rem;letter-spacing:0.4em;color:var(--gold);
+  text-transform:uppercase;margin-bottom:0.8rem
+}
+.section-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:2.6rem;color:var(--brown-deep);margin-bottom:0.4rem;line-height:1.2
+}
+.section-tamil{font-size:1rem;color:var(--text-muted);margin-bottom:3rem}
+
+/* ── SERVICES ── */
+#services{background:var(--off-white)}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5px;background:var(--border)}
+.svc-card{
+  background:var(--cream);padding:2.5rem 2rem;
+  position:relative;overflow:hidden;
+  transition:background 0.3s
+}
+.svc-card::after{
+  content:'';position:absolute;bottom:0;left:0;right:0;height:3px;
+  background:var(--gold);transform:scaleX(0);transform-origin:left;
+  transition:transform 0.4s ease
+}
+.svc-card:hover{background:var(--gold-wash)}
+.svc-card:hover::after{transform:scaleX(1)}
+.svc-num{
+  font-family:'Cormorant Garamond',serif;
+  font-size:3rem;color:var(--gold-pale);font-weight:600;
+  line-height:1;margin-bottom:1rem
+}
+.svc-title{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:500;color:var(--brown-deep);margin-bottom:4px}
+.svc-tamil{font-size:0.78rem;color:var(--gold);letter-spacing:0.05em;margin-bottom:0.8rem}
+.svc-desc{font-size:0.85rem;color:var(--text-muted);line-height:1.8;margin-bottom:1rem}
+.svc-price{
+  font-size:0.75rem;letter-spacing:0.12em;
+  color:var(--brown-deep);font-weight:500;text-transform:uppercase;
+  padding-top:1rem;border-top:1px solid var(--border)
+}
+
+/* ── GALLERY ── */
+#gallery{padding:0;background:var(--brown-deep)}
+.gallery-header{padding:4rem 5rem 2rem;text-align:center}
+.gallery-header .section-title{color:#FBF6EC}
+.gallery-header .section-tamil{color:rgba(251,246,236,0.4)}
+.gallery-header .section-eyebrow{color:var(--gold-light)}
+.gallery-grid{
+  display:grid;
+  grid-template-columns:2fr 1fr 1fr;
+  grid-template-rows:240px 240px;
+  gap:0;padding:0
+}
+.gal-item{border-radius:0;overflow:hidden;position:relative;cursor:pointer;display:block}
+.gal-item.tall{grid-row:span 2}
+.gal-item video{
+  position:absolute;top:0;left:0;
+  width:100%;height:100%;
+  object-fit:cover;object-position:center;
+  transition:transform 0.6s ease;display:block
+}
+.gal-item:hover video{transform:scale(1.04)}
+.gal-overlay{
+  position:absolute;bottom:0;left:0;right:0;
+  padding:1.5rem 1.2rem 1rem;
+  background:linear-gradient(transparent,rgba(42,21,6,0.7));
+  color:#FBF6EC;font-size:0.7rem;font-weight:500;letter-spacing:0.2em;text-transform:uppercase;
+  transition:opacity 0.3s
+}
+.gal-item:hover .gal-overlay{opacity:0}
+.play-hint{
+  position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  opacity:0;transition:opacity 0.3s;
+  background:rgba(42,21,6,0.25)
+}
+.gal-item:hover .play-hint{opacity:1}
+.play-circle{
+  width:48px;height:48px;border-radius:50%;
+  border:1.5px solid rgba(251,246,236,0.8);
+  display:flex;align-items:center;justify-content:center;
+  color:#FBF6EC;font-size:1.1rem
+}
+
+/* ── PROCESS ── */
+#how-it-works{background:var(--gold-wash);padding:5rem}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:3rem;position:relative}
+.steps::before{
+  content:'';position:absolute;top:36px;left:12%;right:12%;height:1px;
+  background:var(--border);z-index:0
+}
+.step{text-align:center;padding:0 1.2rem;position:relative;z-index:1}
+.step-num{
+  width:72px;height:72px;border-radius:50%;
+  border:1px solid var(--gold);
+  background:var(--cream);
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.5rem;color:var(--gold);font-weight:600;
+  display:flex;align-items:center;justify-content:center;
+  margin:0 auto 1.5rem;
+  transition:background 0.3s,color 0.3s
+}
+.step:hover .step-num{background:var(--gold);color:#FBF6EC}
+.step-title{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:500;color:var(--brown-deep);margin-bottom:4px}
+.step-tamil{font-size:0.72rem;letter-spacing:0.08em;color:var(--gold);margin-bottom:8px}
+.step-desc{font-size:0.8rem;color:var(--text-muted);line-height:1.7}
+
+/* ── BOOKING ── */
+#booking{background:#fff;padding:5rem 2rem}
+.booking-inner{max-width:520px;margin:0 auto}
+.booking-inner .section-title{color:var(--brown-deep)}
+.field{margin-bottom:1.2rem}
+.field label{
+  display:block;font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;
+  color:var(--brown-mid);margin-bottom:6px;font-weight:500
+}
+.field label em{color:var(--gold);font-style:normal;font-weight:400}
+.field input,.field select,.field textarea{
+  width:100%;padding:11px 14px;
+  border:1px solid var(--border);border-radius:2px;
+  background:var(--cream);color:var(--text);
+  font-size:0.88rem;font-family:'DM Sans',sans-serif;
+  outline:none;transition:border-color 0.2s,background 0.2s
+}
+.field input:focus,.field select:focus,.field textarea:focus{
+  border-color:var(--gold);background:#fff
+}
+.field textarea{resize:none;height:80px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.submit-btn{
+  width:100%;background:var(--wa);color:#fff;
+  padding:15px;border-radius:2px;border:none;
+  font-size:0.82rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;
+  cursor:pointer;font-family:'DM Sans',sans-serif;margin-top:0.5rem;
+  transition:background 0.2s,transform 0.15s;
+  display:flex;align-items:center;justify-content:center;gap:10px
+}
+.submit-btn:hover{background:#1da851;transform:translateY(-2px)}
+.error-msg{
+  background:#fff5f5;border:1px solid #ffcccc;border-radius:2px;
+  padding:10px 14px;font-size:0.82rem;color:#c0392b;
+  margin-top:1rem;display:none
+}
+.wa-note{
+  display:flex;align-items:flex-start;gap:10px;margin-top:1rem;
+  padding:12px 14px;background:var(--gold-wash);border-radius:2px;
+  font-size:0.78rem;color:var(--brown-mid);line-height:1.6
+}
+
+/* ── CONTACT ── */
+.contact-section{background:var(--brown-deep);padding:5rem 2rem;text-align:center}
+.contact-inner{max-width:600px;margin:0 auto}
+.contact-section h2{font-family:'Cormorant Garamond',serif;font-size:2.4rem;color:#FBF6EC;margin-bottom:0.4rem}
+.contact-section .tamil{color:var(--gold-light);font-size:0.82rem;margin-bottom:2.5rem;letter-spacing:0.05em}
+.contact-cards{display:flex;gap:1.5px;justify-content:center;margin-bottom:2.5rem;background:rgba(155,108,47,0.2)}
+.contact-card{
+  background:rgba(251,246,236,0.04);
+  padding:1.5rem 2rem;flex:1;text-align:center;
+  border:none;transition:background 0.3s
+}
+.contact-card:hover{background:rgba(155,108,47,0.12)}
+.cc-icon{font-size:1.3rem;margin-bottom:8px}
+.cc-label{font-size:0.62rem;color:var(--gold);letter-spacing:0.3em;text-transform:uppercase;margin-bottom:6px}
+.cc-val{font-size:0.9rem;color:#FBF6EC;font-weight:400}
+.wa-big{
+  display:inline-flex;align-items:center;gap:10px;
+  background:var(--wa);color:#fff;
+  padding:15px 36px;border-radius:2px;
+  font-size:0.8rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;
+  text-decoration:none;margin-bottom:1rem;
+  transition:background 0.2s,transform 0.15s
+}
+.wa-big:hover{background:#1da851;transform:translateY(-2px)}
+.hours{font-size:0.72rem;color:rgba(251,246,236,0.3);letter-spacing:0.08em}
+
+/* ── SOCIAL ICONS ── */
+.social-links{display:flex;gap:12px;justify-content:center;margin:1.5rem 0}
+.social-btn{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:10px 20px;border-radius:2px;
+  font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;
+  font-weight:500;text-decoration:none;
+  border:1px solid rgba(155,108,47,0.35);
+  color:rgba(251,246,236,0.75);
+  transition:background 0.2s,border-color 0.2s,color 0.2s,transform 0.15s;
+  font-family:'DM Sans',sans-serif
+}
+.social-btn:hover{transform:translateY(-2px);color:#FBF6EC}
+.social-btn.insta:hover{background:rgba(228,64,95,0.15);border-color:rgba(228,64,95,0.5)}
+.social-btn.yt:hover{background:rgba(255,0,0,0.12);border-color:rgba(255,0,0,0.4)}
+.social-icon{width:18px;height:18px;fill:currentColor;flex-shrink:0}
+
+/* ── FOOTER ── */
+footer{
+  background:rgba(14,6,1,0.98);padding:1.5rem 3rem;
+  display:flex;align-items:center;justify-content:space-between;
+  border-top:1px solid rgba(155,108,47,0.15)
+}
+.footer-logo{font-family:'Cormorant Garamond',serif;color:var(--gold);font-size:1.1rem}
+.footer-text{font-size:0.7rem;color:rgba(251,246,236,0.25);letter-spacing:0.1em}
+.footer-social{display:flex;gap:14px;align-items:center}
+.footer-social a{color:rgba(251,246,236,0.3);transition:color 0.2s;text-decoration:none}
+.footer-social a:hover{color:var(--gold-light)}
+.footer-social svg{width:16px;height:16px;fill:currentColor;display:block}
+
+/* ── SCROLL REVEAL ── */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity 0.7s ease,transform 0.7s ease}
+.reveal.visible{opacity:1;transform:none}
+.reveal-delay-1{transition-delay:0.1s}
+.reveal-delay-2{transition-delay:0.2s}
+.reveal-delay-3{transition-delay:0.3s}
+
+/* ── KEYFRAMES ── */
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(24px)}
+  to{opacity:1;transform:none}
+}
+@keyframes shimmer{
+  0%{background-position:-200% 0}
+  100%{background-position:200% 0}
+}
+
+/* ── RESPONSIVE ── */
+@media(max-width:900px){
+  .hero{grid-template-columns:1fr;padding:6rem 2rem 3rem;gap:2rem}
+  .hero-visual{display:none}
+  .hero h1{font-size:3rem}
+  .section{padding:4rem 2rem}
+  .services-grid{grid-template-columns:1fr}
+  .services-grid{gap:1px}
+  .steps{grid-template-columns:1fr 1fr}
+  .steps::before{display:none}
+  .gallery-grid{grid-template-columns:1fr 1fr;grid-template-rows:auto}
+  .gal-item.tall{grid-row:span 1}
+  nav .nav-links{display:none}
+  footer{flex-direction:column;gap:8px;text-align:center}
+  .form-row{grid-template-columns:1fr}
+  #how-it-works{padding:4rem 2rem}
+  .contact-cards{flex-direction:column;gap:1px;background:transparent}
+  .gallery-header{padding:3rem 2rem 1.5rem}
+}
+</style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav>
+  <div class="nav-logo">
+    Sharli Pleats & Grace
+    <span>Pre-Pleating Specialists</span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#how-it-works">How it Works</a></li>
+    <li><a href="#booking">Book</a></li>
+  </ul>
+  <a href="#booking" class="nav-cta">Book Now</a>
+</nav>
+
+<!-- ── HERO ── -->
+<div class="hero">
+  <div class="hero-text">
+    <div class="hero-eyebrow">Kumbakonam's Finest</div>
+    <h1>Perfectly <em>Pleated</em>,<br>Every Time</h1>
+    <p class="hero-tamil">
+      உங்கள் புடவையை நாங்கள் அழகாக மடிப்போம் —<br>
+      நீங்கள் அணிந்து மகிழுங்கள்
+    </p>
+    <p class="hero-desc">Professional saree pre-pleating for weddings, functions & daily wear. Save hours every morning. Look flawless every time.</p>
+    <div class="hero-btns">
+      <a href="#booking" class="btn-primary">📅 Book Appointment</a>
+      <a href="#" id="hero-wa-btn" class="btn-wa">💬 WhatsApp</a>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="saree-card">
+      <div class="saree-badge">✨ Premium Service</div>
+      <div class="slider">
+        <img src="img/girl1.jpg" class="active" alt="Saree look 1">
+        <img src="img/girl2.jpeg" alt="Saree look 2">
+        <img src="img/girl3.jpeg" alt="Saree look 3">
+      </div>
+      <div class="stats">
+        <div class="stat">
+          <div class="stat-num">100+</div>
+          <div class="stat-label">Sarees Pleated</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">4.9★</div>
+          <div class="stat-label">Rating</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">2 yr</div>
+          <div class="stat-label">Experience</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── SERVICES ── -->
+<div id="services" style="background:var(--off-white)">
+  <div class="section">
+    <p class="section-eyebrow reveal">Our Services • எங்கள் சேவைகள்</p>
+    <h2 class="section-title reveal reveal-delay-1">What We Offer</h2>
+    <p class="section-tamil reveal reveal-delay-2">நாங்கள் வழங்கும் சேவைகள்</p>
+    <div class="services-grid reveal reveal-delay-2">
+      <div class="svc-card">
+        <div class="svc-num">01</div>
+        <div class="svc-title">Daily Wear Pleating</div>
+        <div class="svc-tamil">தினசரி புடவை மடிப்பு</div>
+        <div class="svc-desc">Perfect pleats for your everyday sarees. Quick turnaround, ready to wear anytime.</div>
+        <div class="svc-price">From ₹200 per saree</div>
+      </div>
+      <div class="svc-card">
+        <div class="svc-num">02</div>
+        <div class="svc-title">Bridal & Wedding</div>
+        <div class="svc-tamil">திருமண புடவை மடிப்பு</div>
+        <div class="svc-desc">Kanjeevaram, silk, heavy embroidery — handled with utmost care for your most important day.</div>
+        <div class="svc-price">From ₹300 per saree</div>
+      </div>
+      <div class="svc-card">
+        <div class="svc-num">03</div>
+        <div class="svc-title">Bulk Orders</div>
+        <div class="svc-tamil">அதிக புடவைகள்</div>
+        <div class="svc-desc">Family functions, temple events, corporate gifting — special pricing for 10+ sarees.</div>
+        <div class="svc-price">Special pricing available</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── GALLERY ── -->
+<div id="gallery">
+  <div class="gallery-header">
+    <p class="section-eyebrow reveal">Gallery • காட்சி</p>
+    <h2 class="section-title reveal reveal-delay-1">Our Work</h2>
+    <p class="section-tamil reveal reveal-delay-2">எங்களுடைய வேலை</p>
+  </div>
+  <div class="gallery-grid">
+    <div class="gal-item tall">
+      <video id="mainVideo" autoplay muted loop playsinline>
+        <source src="vedios/vedio1.mp4" type="video/mp4">
+      </video>
+      <div class="gal-overlay">Our Work</div>
+    </div>
+    <div class="gal-item" onclick="changeVideo('vedios/vedio2.mp4')">
+      <video muted loop>
+        <source src="vedios/vedio2.mp4" type="video/mp4">
+      </video>
+      <div class="gal-overlay">Wedding</div>
+      <div class="play-hint"><div class="play-circle">▶</div></div>
+    </div>
+    <div class="gal-item" onclick="changeVideo('vedios/vedio3.mp4')">
+      <video muted loop>
+        <source src="vedios/vedio3.mp4" type="video/mp4">
+      </video>
+      <div class="gal-overlay">Silk Cotton</div>
+      <div class="play-hint"><div class="play-circle">▶</div></div>
+    </div>
+    <div class="gal-item" onclick="changeVideo('vedios/vedio4.mp4')">
+      <video muted loop>
+        <source src="vedios/vedio4.mp4" type="video/mp4">
+      </video>
+      <div class="gal-overlay">Chiffon</div>
+      <div class="play-hint"><div class="play-circle">▶</div></div>
+    </div>
+    <div class="gal-item" onclick="changeVideo('vedios/vedio.5.mp4')">
+      <video muted loop>
+        <source src="vedios/vedio.5.mp4" type="video/mp4">
+      </video>
+      <div class="gal-overlay">Daily Wear</div>
+      <div class="play-hint"><div class="play-circle">▶</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ── PROCESS ── -->
+<div id="how-it-works">
+  <div style="max-width:1100px;margin:0 auto">
+    <p class="section-eyebrow reveal" style="text-align:center">How It Works • எப்படி</p>
+    <h2 class="section-title reveal reveal-delay-1" style="text-align:center">Book in 4 Simple Steps</h2>
+    <p class="section-tamil reveal reveal-delay-2" style="text-align:center">மூன்று எளிய படிகளில் முன்பதிவு செய்யுங்கள்</p>
+    <div class="steps reveal reveal-delay-2">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-title">Fill the Form</div>
+        <div class="step-tamil">Form பூர்த்தி செய்யுங்கள்</div>
+        <div class="step-desc">Enter your name, date, saree type and count below</div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-title">WhatsApp Opens</div>
+        <div class="step-tamil">WhatsApp திறக்கும்</div>
+        <div class="step-desc">Your booking details auto-fill into WhatsApp — just hit Send!</div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-title">We Confirm</div>
+        <div class="step-tamil">நாங்கள் உறுதி செய்வோம்</div>
+        <div class="step-desc">We reply within 60 minutes to confirm your appointment</div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-title">Pick Up & Wear</div>
+        <div class="step-tamil">அணியுங்கள்!</div>
+        <div class="step-desc">Collect your perfectly pleated saree and look stunning</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── BOOKING ── -->
+<div id="booking">
+  <div class="booking-inner">
+    <p class="section-eyebrow reveal" style="text-align:center">Book an Appointment • முன்பதிவு</p>
+    <h2 class="section-title reveal reveal-delay-1" style="text-align:center">Reserve Your Slot</h2>
+    <p class="section-tamil reveal reveal-delay-2" style="text-align:center;margin-bottom:2.5rem">உங்கள் விவரங்களை பூர்த்தி செய்யவும் — WhatsApp-ல் நேரடியாக அனுப்பப்படும்</p>
+
+    <div class="field reveal">
+      <label>Full Name <em>/ பெயர்</em></label>
+      <input type="text" id="b-name" placeholder="உங்கள் பெயர்"/>
+    </div>
+    <div class="form-row reveal">
+      <div class="field">
+        <label>Phone Number <em>/ தொலைபேசி</em></label>
+        <input type="tel" id="b-phone" placeholder="+91 98765 43210"/>
+      </div>
+      <div class="field">
+        <label>Preferred Date <em>/ தேதி</em></label>
+        <input type="date" id="b-date"/>
+      </div>
+    </div>
+    <div class="form-row reveal">
+      <div class="field">
+        <label>Saree Type <em>/ புடவை வகை</em></label>
+        <select id="b-type">
+          <option value="">Select type</option>
+          <option>Kanjeevaram Silk</option>
+          <option>Cotton / Daily Wear</option>
+          <option>Chiffon / Georgette</option>
+          <option>Bridal / Heavy Work</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="field">
+        <label>Number of Sarees <em>/ எத்தனை</em></label>
+        <input type="number" id="b-count" min="1" max="50" placeholder="1"/>
+      </div>
+    </div>
+    <div class="field reveal">
+      <label>Special Instructions <em>/ கூடுதல் தகவல் (optional)</em></label>
+      <textarea id="b-note" placeholder="Pickup needed, specific style, etc."></textarea>
+    </div>
+    <button class="submit-btn reveal" onclick="bookViaWhatsApp()">
+      💬 Send Booking via WhatsApp
+    </button>
+    <div class="error-msg" id="b-error"></div>
+    <div class="wa-note reveal">
+      ✅ No app needed — your details are sent directly to our WhatsApp. We confirm within 30 minutes!
+    </div>
+  </div>
+</div>
+
+<!-- ── CONTACT ── -->
+<div class="contact-section">
+  <div class="contact-inner">
+    <h2 class="reveal">Get In Touch</h2>
+    <p class="tamil reveal reveal-delay-1">தொடர்பு கொள்ளுங்கள் • Book your appointment today</p>
+    <div class="contact-cards reveal reveal-delay-2">
+      <div class="contact-card">
+        <div class="cc-icon">📞</div>
+        <div class="cc-label">Call Us</div>
+        <div class="cc-val" id="contact-phone"></div>
+      </div>
+      <div class="contact-card">
+        <div class="cc-icon">📍</div>
+        <div class="cc-label">Location</div>
+        <div class="cc-val" id="contact-address"></div>
+      </div>
+      <div class="contact-card">
+        <div class="cc-icon">🕐</div>
+        <div class="cc-label">Open Hours</div>
+        <div class="cc-val">9 am – 8 pm Daily</div>
+      </div>
+    </div>
+    <a href="#" id="footer-wa-btn" class="wa-big reveal">💬 Chat on WhatsApp</a>
+
+    <div class="social-links reveal">
+      <a href="https://www.instagram.com/kalikrish_2017" target="_blank" class="social-btn insta">
+        <svg class="social-icon" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        @kalikrish_2017
+      </a>
+      <a href="https://www.youtube.com/@sharlikarthik9429" target="_blank" class="social-btn yt">
+        <svg class="social-icon" viewBox="0 0 24 24"><path d="M23.495 6.205a3.007 3.007 0 0 0-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 0 0 .527 6.205a31.247 31.247 0 0 0-.522 5.805 31.247 31.247 0 0 0 .522 5.783 3.007 3.007 0 0 0 2.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 0 0 2.088-2.088 31.247 31.247 0 0 0 .5-5.783 31.247 31.247 0 0 0-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg>
+        @sharlikarthik9429
+      </a>
+    </div>
+    <p class="hours reveal">Typically replies within 60 minutes</p>
+  </div>
+</div>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-logo">Sharli Pleats & Grace</div>
+  <div class="footer-social">
+    <a href="https://www.instagram.com/kalikrish_2017" target="_blank" title="Instagram">
+      <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+    </a>
+    <a href="https://www.youtube.com/@sharlikarthik9429" target="_blank" title="YouTube">
+      <svg viewBox="0 0 24 24"><path d="M23.495 6.205a3.007 3.007 0 0 0-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 0 0 .527 6.205a31.247 31.247 0 0 0-.522 5.805 31.247 31.247 0 0 0 .522 5.783 3.007 3.007 0 0 0 2.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 0 0 2.088-2.088 31.247 31.247 0 0 0 .5-5.783 31.247 31.247 0 0 0-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg>
+    </a>
+  </div>
+  <div class="footer-text">© 2025 · Made with ❤️ in Kumbakonam</div>
+</footer>
+
+<script>
+const WA_NUMBER="918220963618";
+const DISPLAY_PHONE="+91 82209 63618";
+const DISPLAY_ADDRESS="1/16, Dabeer North Street, OVM Complex, Kumbakonam";
+
+document.getElementById('b-date').min=new Date().toISOString().split('T')[0];
+document.getElementById('contact-phone').textContent=DISPLAY_PHONE;
+document.getElementById('contact-address').textContent=DISPLAY_ADDRESS;
+
+const simpleWaLink=`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent("Hello, I would like to know more about your saree pre-pleating service.")}`;
+document.getElementById('hero-wa-btn').href=simpleWaLink;
+document.getElementById('footer-wa-btn').href=simpleWaLink;
+
+function bookViaWhatsApp(){
+  const name=document.getElementById('b-name').value.trim();
+  const phone=document.getElementById('b-phone').value.trim();
+  const date=document.getElementById('b-date').value;
+  const type=document.getElementById('b-type').value;
+  const count=document.getElementById('b-count').value;
+  const note=document.getElementById('b-note').value.trim();
+  const errBox=document.getElementById('b-error');
+  if(!name||!phone||!date||!type||!count){
+    errBox.textContent='⚠️ Please fill all required fields / அனைத்தையும் பூர்த்தி செய்யவும்';
+    errBox.style.display='block';return;
+  }
+  errBox.style.display='none';
+  const dateObj=new Date(date+'T00:00:00');
+  const dateFormatted=dateObj.toLocaleDateString('en-IN',{day:'numeric',month:'long',year:'numeric'});
+  const message=`🥻 *New Booking – Sharli Pleats & Grace*\n\n👤 Name: ${name}\n📞 Phone: ${phone}\n📅 Date: ${dateFormatted}\n👘 Saree: ${type} (${count} saree${count>1?'s':''})\n📝 Note: ${note||'None'}\n\n_Sent from Sharli Pleats & Grace website_`;
+  window.open(`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(message)}`,'_blank');
+}
+
+/* image slider */
+const images=document.querySelectorAll(".slider img");
+if(images.length>0){
+  let current=0;
+  setInterval(()=>{
+    images[current].classList.remove("active");
+    current=(current+1)%images.length;
+    images[current].classList.add("active");
+  },2800);
+}
+
+/* video switcher */
+function changeVideo(src){
+  const player=document.getElementById("mainVideo");
+  player.pause();player.src=src;player.load();player.play();
+}
+
+/* scroll reveal */
+const observer=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')});
+},{threshold:0.12});
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+
+/* nav scroll style */
+window.addEventListener('scroll',()=>{
+  document.querySelector('nav').style.background=
+    window.scrollY>60?'rgba(42,21,6,0.97)':'rgba(42,21,6,0.92)';
+});
+</script>
+</body>
+</html>
